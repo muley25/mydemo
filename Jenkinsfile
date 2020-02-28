@@ -12,11 +12,11 @@ node{
       bat "${mvnHome}/bin/mvn package"
       }
    stage('Deploy to Tomcat'){
-     bat "copy target\\Hello-World.war \"${tomcatWeb}\\JenkinsWar.war\""
+     bat "copy target\\Hello-World.war \"${tomcatWeb}\\Hello-World.war\""
    }
       stage ('Start Tomcat Server') {
          sleep(time:5,unit:"SECONDS") 
          bat "${tomcatBin}\\startup.bat"
-         sleep(time:100,unit:"SECONDS")
+         sleep(time:20,unit:"SECONDS")
    }
 }
